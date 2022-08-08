@@ -21,6 +21,7 @@ jobs:
       - run: npm install
         working-directory: ./my-agora-states-client
       - run: npm run test
+        working-directory: ./my-agora-states-client
   build:
     runs-on: ubuntu-latest
     needs: test
