@@ -13,3 +13,17 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm test
+  deploy: 
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+    matrix:
+      node-version: [16]
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy before test
+        uses: actions/setup-node@v1
+        with:
+          node-verision: "16"
+        - run: npm install
+        - run: npm test
