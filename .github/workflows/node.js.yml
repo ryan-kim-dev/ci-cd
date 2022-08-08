@@ -38,7 +38,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm run build
-        working-directory: ./my-agora-states-client
 
   deploy:
     needs: build
