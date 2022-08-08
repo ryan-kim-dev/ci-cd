@@ -27,7 +27,6 @@ jobs:
 
   build-and-deploy:
     needs: test
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
