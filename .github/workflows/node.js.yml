@@ -26,6 +26,7 @@ jobs:
         working-directory: ./my-agora-states-client
 
   build-and-deploy:
+    needs: test
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
@@ -36,6 +37,7 @@ jobs:
         run: |
           npm ci
           npm run build
+        working-directory: ./my-agora-states-client
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
