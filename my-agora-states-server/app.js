@@ -19,10 +19,9 @@ const discussionsRouter = require('./router/discussions');
 // TODO: /discussions 경로로 라우팅합니다.
 app.use('/discussions', discussionsRouter);
 
-// 테스트케이스 통과시에만 배포되도록 테스트하기 위해 주석처리
-// app.get('/', (req, res) => {
-//   res.status(200).send('Welcome, My Agora States Server!');
-// });
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome, My Agora States Server!');
+});
 
 const server = app.listen(port, () => {
   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
