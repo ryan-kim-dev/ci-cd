@@ -3,27 +3,13 @@ name: Bare Minimum Requirements
 on: [push, pull_request]
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Bare Minimum Requirements
+      - name: test before deploy
         uses: actions/setup-node@v1
         with:
           node-version: '16'
       - run: npm install
       - run: npm test
-  deploy: 
-    needs: test
-    runs-on: ubuntu-latest
-    strategy:
-    matrix:
-      node-version: [16]
-    steps:
-      - uses: actions/checkout@v2
-      - name: deploy before test
-        uses: actions/setup-node@v1
-        with:
-          node-verision: "16"
-        - run: npm install
-        - run: npm test
