@@ -43,6 +43,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
+      - run: npm install
       - run: npm run build
         working-directory: ./my-agora-states-client
       - name: Deploy
